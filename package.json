@@ -1,0 +1,26 @@
+{
+  "name": "subscription",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ./src/",
+    "test": "jest --env=node --watch --color --coverage",
+    "lint": "standard --verbose | snazzy",
+    "lint-fix": "standard --fix | snazzy"
+  },
+  "pre-commit": "lint, test",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^20.0.4",
+    "pre-commit": "^1.2.2",
+    "snazzy": "^7.0.0",
+    "standard": "^10.0.2"
+  },
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "joi": "^10.6.0"
+  }
+}
