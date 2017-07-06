@@ -15,6 +15,7 @@
   "license": "ISC",
   "devDependencies": {
     "jest": "^20.0.4",
+    "mongodb": "^2.2.29",
     "pre-commit": "^1.2.2",
     "snazzy": "^7.0.0",
     "standard": "^10.0.2"

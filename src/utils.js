@@ -8,6 +8,7 @@ const removeArrayItem = (array, index) => {
   return newArray
 }
 
+/* Make sure that params exist for funcation */
 const isRequired = () => {
   throw new Error('param is required')
 }

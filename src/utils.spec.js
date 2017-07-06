@@ -1,3 +1,5 @@
+/* eslint-env jest */
+
 const { isRequired } = require('./utils')
 
 describe('Utils', () => {

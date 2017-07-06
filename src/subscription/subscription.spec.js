@@ -11,9 +11,9 @@ const {
   isSubscriptionBillable,
   changeSubscriptionPlan,
   validateSubscription
-} = require('./subscription')
+} = require('./')
 
-const { initPlan } = require('./plan')
+const { initPlan } = require('../plan')
 
 describe('Subscription', () => {
   describe('getExpirationDate()', () => {
@@ -90,11 +90,11 @@ describe('Subscription', () => {
     it('Return cost of multiple plans', async () => {
       const plans = [await createPlan(), await createPlan(), await createPlan()]
       const sub = await createSubscription({ plans })
-      expect(getSubscriptionCost(sub)).toEqual(999 * 3)
+      expect(await getSubscriptionCost(sub)).toEqual(999 * 3)
     })
 
     it('Param is required', () => {
-      expect(() => getSubscriptionCost()).toThrow()
+      return expect(getSubscriptionCost()).rejects.toBeDefined()
     })
   })
 

@@ -1,6 +1,6 @@
-const { validate } = require('./models/')
-const { initPlan, isPlansEqual, calculatePlanInterval } = require('./plan')
-const { insertArrayItem, removeArrayItem, isRequired } = require('./utils')
+const { validate } = require('../models/')
+const { initPlan, isPlansEqual, calculatePlanInterval } = require('../plan')
+const { insertArrayItem, removeArrayItem, isRequired } = require('../utils')
 
 const initSubscription = async object => {
   try {
@@ -31,7 +31,7 @@ const getSubscriptionStatus = async (sub = isRequired()) => {
 }
 
 /* Loop through plans and add the amounts */
-const getSubscriptionCost = (sub = isRequired()) => {
+const getSubscriptionCost = async (sub = isRequired()) => {
   const { plans } = sub
   if (plans.length === 1) return plans[0].amount
   else {

@@ -1,16 +1,22 @@
 global.Promise = require('bluebird')
 
-const subscription = require('./subscription')
+const {
+  initSubscription,
+  isSubscriptionBillable,
+  getSubscriptionCost,
+  changeSubscriptionPlan,
+  updatePeriod
+} = require('./subscription')
 const plan = require('./plan')
 
-//TODO export sub and plan, expose only methods that are nessecary
+// TODO export sub and plan, expose only methods that are nessecary
 module.exports = {
   subscription: {
-    initSubscription: subscription.initSubscription,
-    isSubscriptionBillable: subscription.isSubscriptionBillable,
-    getSubscriptionCost: subscription.getSubscriptionCost,
-    changeSubscriptionPlan: subscription.changeSubscriptionPlan,
-    updatePeriod: subscription.updatePeriod
+    initSubscription,
+    isSubscriptionBillable,
+    getSubscriptionCost,
+    changeSubscriptionPlan,
+    updatePeriod
   },
   plan: {
     initPlan: plan.initPlan
@@ -27,15 +33,15 @@ let sub = {
   expirationDate: Date.UTC(2017, 0, 1)
 }
 
-console.log(subscription.getSubscriptionCost(sub))
+console.log(getSubscriptionCost(sub))
 
-sub = subscription.changeSubscriptionPlan(sub, undefinedPlan, definedPlan)
+sub = changeSubscriptionPlan(sub, undefinedPlan, definedPlan)
 
 console.log(sub)
 console.log(new Date(sub.expirationDate))
 
-subscription.updatePeriod(sub, true).then(async sub => {
+updatePeriod(sub, true).then(async sub => {
   console.log(new Date(sub.expirationDate))
-  let test = await subscription.updatePeriod(sub, true)
+  let test = await updatePeriod(sub, true)
   console.log(new Date(test.expirationDate))
 })

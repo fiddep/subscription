@@ -1,4 +1,4 @@
-const { validate } = require('./models/')
+const { validate } = require('../models/')
 
 const defaultPlan = () => ({
   name: 'testPlan',

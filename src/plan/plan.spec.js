@@ -1,6 +1,6 @@
 /* eslint-env jest */
 
-const { initPlan, isPlansEqual, calculatePlanInterval } = require('./plan')
+const { initPlan, isPlansEqual, calculatePlanInterval } = require('./')
 
 describe('Plan', () => {
   describe('isPlansEqual()', () => {
